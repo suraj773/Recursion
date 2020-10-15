@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+#define Min 100
+
+int getMinElement(int []);  
+int size;
+
+int main()
+{
+    
+    int arr[Min], min, i;
+    printf("\n\nEnter the size of the array: ");
+    scanf("%d", &size);
+    printf("\n\nEnter %d elements\n\n", size);
+
+    for(i = 0; i < size; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    
+    min = getMinElement(arr);   
+    printf("\n\nsmolest element of the array is %d\n\n", min);
+  
+    return 0;
+}
+int getMinElement(int a[])
+{
+    static int i=0,min = 9999;  
+    if(i < size)  
+    {
+        if(min > a[i])
+        min = a[i];
+
+        i++;    
+        getMinElement(a);   
+    }
+    return min;
+}
+
